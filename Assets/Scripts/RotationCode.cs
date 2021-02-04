@@ -6,7 +6,6 @@ public class RotationCode : MonoBehaviour
 {
 
     public GameObject orbitTarget;
-    private Vector3 angle; 
 
     public float rotationSpeed = 30;
 
