@@ -37,7 +37,7 @@ public class RotationCode : MonoBehaviour
 
         //math
         transform.position = orbitTarget.transform.position + offset;
-        transform.Rotate(randX, randY, randZ);
+        transform.Rotate(randX * time, randY * time, randZ * time);
         //transform.rotation = new Quaternion(this.transform.rotation.x + randX, this.transform.rotation.y + randY, this.transform.rotation.z + randZ, this.transform.rotation.w);
     }
 
