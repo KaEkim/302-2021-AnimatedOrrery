@@ -8,33 +8,37 @@ public class RotationCode : MonoBehaviour
     public GameObject orbitTarget;
     private Vector3 angle; 
 
-    public int rotationSpeed = 30;
+    public float rotationSpeed = 30;
 
     public float radius = 10;
     private float age = 0;
 
+    private float randX;
+    private float randY;
+    private float randZ;
 
-    // Start is called before the first frame update
-    void Start()
+    public static int time = 1;
+
+    private void Start()
     {
-
+        randX = Random.Range(.2f, 4);
+        randY = Random.Range(.2f, 4);
+        randZ = Random.Range(.2f, 4);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        age += Time.deltaTime * rotationSpeed;
+        age += Time.deltaTime * rotationSpeed * time;
+
 
         Vector3 offset = new Vector3();
         offset.x = Mathf.Sin(age) * radius;
         offset.z = Mathf.Cos(age) * radius;
 
-        
-
-
         //math
-
         transform.position = orbitTarget.transform.position + offset;
+        transform.Rotate(randX, randY, randZ);
+        //transform.rotation = new Quaternion(this.transform.rotation.x + randX, this.transform.rotation.y + randY, this.transform.rotation.z + randZ, this.transform.rotation.w);
     }
 
 }
